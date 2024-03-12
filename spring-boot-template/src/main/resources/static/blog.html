@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>个人博客</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+
+        #top {
+            position: fixed;
+            height: 58px;
+            display: flex;
+            top: 0;
+            z-index: 9;
+            background-color: #fff;
+            width: 100%;
+            border-bottom: 1px solid #f0f0f0;
+            justify-content: space-between;
+            align-items: center;
+
+            #top-left {
+                width: 48%;
+                height: 56px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            #top-container {
+                width: 100%;
+                height: 56px;
+                display: flex;
+                align-items: center;
+
+
+                ul {
+                    display: flex;
+                    height: 100%;
+                    cursor: pointer;
+
+                    li {
+                        list-style-type: none;
+                        padding: 15px;
+                    }
+
+                    li:hover {
+                        background: #f0f0f0;
+                    }
+                }
+
+                .top-search {
+                    padding: 0 40px 0 20px;
+                    width: 160px;
+                    height: 38px;
+                    font-size: 14px;
+                    border: 1px solid #eee;
+                    border-radius: 40px;
+                    background: #eee;
+                    margin-left: 15px;
+                }
+
+                .top-search:focus {
+                    outline: none;
+                }
+
+                .top-container-right {
+                    display: flex;
+                    flex: 1;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .top-login {
+                        color: #969696;
+                        width: 56px;
+                        text-align: center;
+                        margin-top: -8px;
+                    }
+                }
+
+
+            }
+
+            #top-right {
+                display: flex;
+                height: 100%;
+                width: 45%;
+
+                #top-sign {
+                    width: 80px;
+                    height: 38px;
+                    line-height: 24px;
+                    margin: 9px 5px 0 15px;
+                    border: 1px solid rgba(236, 97, 73, .7);
+                    border-radius: 20px;
+                    font-size: 15px;
+                    color: #ea6f5a;
+                    background-color: transparent;
+                }
+
+                #top-write {
+                    width: 100px;
+                    height: 40px;
+                    line-height: 24px;
+                    margin: 8px 12px 0;
+                    border-radius: 20px;
+                    font-size: 15px;
+                    color: #fff;
+                    background-color: #ea6f5a;
+                    border: none;
+                }
+            }
+        }
+
+        .container-recommend {
+            margin-top: 90px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            .container-inner {
+                width: 960px;
+                height: 100px;
+                position: relative;
+
+                img {
+                    width: 960px;
+                    height: 100px;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .help {
+                    position: absolute;
+                    right: 30px;
+                    top: 38px;
+                    color: #fff;
+                    z-index: 2;
+                }
+            }
+        }
+
+        .user-main {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            .user-body {
+                width: 960px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                .user-card {
+                    width: 260px;
+                    height: 320px;
+                    margin-top: 80px;
+                    padding: 0 20px;
+                    border: 1px solid #e6e6e6;
+                    border-radius: 4px;
+                    background-color: hsla(0, 0%, 71%, .1);
+                    cursor: pointer;
+
+
+                    .avatar {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 40px;
+                        margin: -40px 90px 10px;
+                        display: inline-block;
+                        border: 1px solid #ddd;
+                        background-color: #fff;
+                    }
+
+                    .info {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        .description {
+                            min-height: 50px;
+                            font-size: 13px;
+                            line-height: 25px;
+                            margin: 0 auto 10px;
+                            max-width: 180px;
+                            text-align: center;
+                        }
+
+                        button {
+                            background: #42c02e;
+                            border: none;
+                            width: 100px;
+                            height: 39px;
+                            border-radius: 40px;
+                            color: #fff;
+                            font-size: 16px;
+                        }
+
+                        h4 {
+                            font-size: 21px;
+                            font-weight: 700;
+                            overflow: hidden;
+                            text-align: center;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
+
+                    .update {
+                        font-size: 12px;
+                        color: #969696;
+                        margin-top: 16px;
+                        background-color: #f8f8f8;
+
+                    }
+
+                    .recent-update {
+                        margin-top: 16px;
+                        text-align: center;
+
+                        a {
+                            color: #333;
+                            font-size: 13px;
+                            line-height: 25px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            display: block;
+                            text-decoration: none;
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        .nv-bottom {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+
+            button {
+                width: 370px;
+                padding: 10px 0;
+                margin: 40px 0;
+                font-size: 15px;
+                border-radius: 20px;
+                background-color: #a5a5a5;
+                border: none;
+                color: white;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<!--头部框架-->
+<div id="top">
+    <div id="top-left">
+        <img src="/assets/logn.png" alt="">
+    </div>
+    <div id="top-container">
+        <ul>
+            <li>首页</li>
+            <li>下载App</li>
+            <li>会员</li>
+            <li>IT技术</li>
+        </ul>
+        <input class="top-search" placeholder="搜索"/>
+        <div class="top-container-right">
+            <img src="./assets/a.png" alt="">
+            <div style="display: flex;align-items: center">
+                <img src="./assets/Aa.png" alt="">
+                <div class="top-login">登录</div>
+            </div>
+        </div>
+    </div>
+    <div id="top-right">
+        <button id="top-sign">注册</button>
+        <button id="top-write">写文章</button>
+    </div>
+</div>
+<div class="container-recommend">
+    <div class="container-inner">
+        <img src="./assets/recommend-author.png" alt="">
+        <div class="help">如何称为签约作者</div>
+    </div>
+</div>
+<div class="user-main">
+    <div class="user-body">
+        <!--用户1-->
+        <div class="user-card">
+            <img class="avatar" alt="" src="./assets/user.webp">
+            <div class="info">
+                <h4>卢璐说</h4>
+                <p class="description">欢迎关注我的个人公众号：lulu_blog&lt;...</p>
+                <button>+ 关注</button>
+            </div>
+            <div class="update">
+                <div>最近更新</div>
+                <div class="line"></div>
+            </div>
+            <div class="recent-update">
+                <a class="new" target="_blank" href="/p/3af2535b42d0">因为娶了中国老婆，卢先生被法国排斥了！</a>
+                <a class="new" target="_blank" href="/p/8a7b61348067">被迷惑花掉5万，这装富的刺激，竟打了水漂？</a>
+                <a class="new" target="_blank" href="/p/47c5825b5306">嫌弃有钱又顾家的老公，中年女人的心思有谁懂？</a>
+            </div>
+        </div>
+        <!--用户2-->
+        <div class="user-card">
+            <img class="avatar" alt=""
+                 src="https://upload.jianshu.io/users/upload_avatars/6539412/69075f35-f3f1-4d33-b325-215d530b1620.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180">
+            <div class="info">
+                <h4>
+                    琪官Kafka
+                </h4>
+                <p class="description">青年作家琪官。已出版长篇小说《无姓之人》。</p>
+                <button>+ 关注</button>
+            </div>
+            <div class="update">
+                <div>最近更新</div>
+                <div class="line"></div>
+            </div>
+            <div class="recent-update">
+                <a class="new" target="_blank" href="/p/217115688153">日本留学打工漫记</a>
+                <a class="new" target="_blank"
+                   href="/p/bd1f09720391">当村上春树遇见茵芭·平托，将会碰撞出怎样的火花？——话剧《奇鸟行状录》彩排观摩后感（中日双语）</a>
+                <a class="new" target="_blank" href="/p/7106636f8655">简书五年，我出版了第一本小说《无姓之人》</a>
+            </div>
+        </div>
+        <!--用户3-->
+        <div class="user-card">
+            <img class="avatar" alt=""
+                 src="https://upload.jianshu.io/users/upload_avatars/7133325/f4370cf6-cf4d-4839-9b54-87beaa767d48?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180">
+            <div class="info">
+                <h4>
+                    Hobbit霍比特人
+                </h4>
+                <p class="description">2016年徒步太平洋山脊小径2018...</p>
+                <button>+ 关注</button>
+            </div>
+            <div class="update">
+                <div>最近更新</div>
+                <div class="line"></div>
+            </div>
+            <div class="recent-update">
+                <a class="new" target="_blank" href="/p/20f0733e0cb5">穿越大陆分水岭(九)风河岭</a>
+                <a class="new" target="_blank" href="/p/09f9b25e28b0">穿越大陆分水岭(八)黄石--烟火之地</a>
+                <a class="new" target="_blank" href="/p/e93586d57cfa">穿越大陆分水岭(七)与萨卡加维亚擦肩而过</a>
+            </div>
+        </div>
+        <!--用户3-->
+        <div class="user-card">
+            <img class="avatar" alt=""
+                 src="https://upload.jianshu.io/users/upload_avatars/4790772/388e473c-fe2f-40e0-9301-e357ae8f1b41.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180">
+            <div class="info">
+                <h4>
+                    茶点故事
+                </h4>
+                <p class="description">简书上的好故事，我！承！包！了！....</p>
+                <button>+ 关注</button>
+            </div>
+            <div class="update">
+                <div>最近更新</div>
+                <div class="line"></div>
+            </div>
+            <div class="recent-update">
+                <a class="new" target="_blank" href="/p/249e4c340f91">和离后我重回青楼1</a>
+                <a class="new" target="_blank" href="/p/91be48e0dc1a">醉阑珊1</a>
+                <a class="new" target="_blank" href="/p/1bd7ac8090eb">我和我的隐恋男友1</a>
+            </div>
+        </div>
+
+
+        <div class="user-card">
+            <img class="avatar" alt=""
+                 src="https://upload.jianshu.io/users/upload_avatars/3136195/484e32c3504a.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180">
+            <div class="info">
+                <h4>
+                    梅拾璎
+                </h4>
+                <p class="description">专栏作家，简书签约作者。著有超级教育...</p>
+                <button>+ 关注</button>
+            </div>
+            <div class="update">
+                <div>最近更新</div>
+                <div class="line"></div>
+            </div>
+            <div class="recent-update">
+                <a class="new" target="_blank" href="/p/874845497a0d">与几位大咖一见如故！</a>
+                <a class="new" target="_blank" href="/p/d98d9c7de550">微小习惯，长期坚持——可能这才是优秀的诀窍</a>
+                <a class="new" target="_blank" href="/p/9e6ca0e775a3">蝉声汹涌，天地寂寥</a>
+            </div>
+        </div>
+
+
+        <div class="user-card">
+            <img class="avatar" alt=""
+                 src="https://upload.jianshu.io/users/upload_avatars/3343569/6940ee65-036f-4b7a-9935-5915d9b67d14.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180">
+            <div class="info">
+                <h4>
+                    吴晓布
+                </h4>
+                <p class="description"></p>
+                <button>+ 关注</button>
+            </div>
+            <div class="update">
+                <div>最近更新</div>
+                <div class="line"></div>
+            </div>
+            <div class="recent-update">
+                <a class="new" target="_blank" href="/p/8c21c5881e56">《超级学习》行动清单</a>
+                <a class="new" target="_blank" href="/p/8715831ea60f">我们怎样度过一天，就怎样度过一生</a>
+                <a class="new" target="_blank" href="/p/2cb2e90fdbe4">《超级学习》使用说明书</a>
+            </div>
+        </div>
+
+
+        <div class="user-card">
+            <img class="avatar" alt="" src="./assets/user.webp">
+            <div class="info">
+                <h4>三儿王屿</h4>
+                <p class="description"></p>
+                <button>+ 关注</button>
+            </div>
+            <div class="update">
+                <div>最近更新</div>
+                <div class="line"></div>
+            </div>
+            <div class="recent-update">
+                <a class="new" target="_blank" href="/p/249e4c340f91">和离后我重回青楼1</a>
+                <a class="new" target="_blank" href="/p/91be48e0dc1a">醉阑珊1</a>
+                <a class="new" target="_blank" href="/p/1bd7ac8090eb">我和我的隐恋男友1</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<div class="nv-bottom">
+    <button>加载更多</button>
+</div>
+
+</body>
+</html>
