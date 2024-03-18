@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztf.boot.database.mapper.ArticleMapper">
+    <insert id="insertArticle">
+        INSERT INTO t_article(author,title,content) values(#{author},#{title},#{content})
+    </insert>
+
+    <update id="updateArticle">
+        update t_article set author = #{author},title = #{title},content = #{content} where id=#{id}
+    </update>
+
+    <select id="getArticleById" resultType="com.ztf.boot.database.entity.Article">
+        select * from t_article where id = #{id}
+    </select>
+
+    <select id="findAll" resultType="com.ztf.boot.database.entity.Article">
+        select *
+        from t_article
+    </select>
+
+    <delete id="deleteArticle">
+        DELETE from t_article where id = #{id}
+    </delete>
+</mapper>
