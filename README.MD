@@ -36,3 +36,8 @@ sprint-boot-template
 
 ## 4. 数据库开发框架
 springboot-database
+
+## 5. SpringBoot整合mybatis
+spring-boot-mybatis
+
+
