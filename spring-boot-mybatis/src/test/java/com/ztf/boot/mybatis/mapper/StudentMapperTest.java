@@ -2,6 +2,7 @@ package com.ztf.boot.mybatis.mapper;
 
 import com.ztf.boot.mybatis.entity.Student;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
+@Slf4j
 class StudentMapperTest {
 
     @Resource
@@ -93,5 +95,17 @@ class StudentMapperTest {
         }
         int n = studentMapper.batchUpdate(students);
         assertEquals(1, n);
+    }
+
+    @Test
+    void getStudentManyToOne() {
+        Student student = studentMapper.getStudentManyToOne(1001);
+        log.info(String.valueOf(student));
+    }
+
+    @Test
+    void getStudent() {
+        Student student = studentMapper.getStudent(1001);
+        log.info(String.valueOf(student));
     }
 }

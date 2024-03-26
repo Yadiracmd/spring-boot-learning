@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -18,4 +19,7 @@ public class Student {
     private String studentName;
     private String hometown;
     private LocalDate birthday;
+    private Clazz clazz;
+
+    private List<Course> courses;
 }

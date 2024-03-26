@@ -2,6 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ztf.boot.mybatis.mapper.StudentMapper">
 
+    <resultMap id="studentMap" type="student">
+        <id column="student_id" property="studentId"/>
+        <result column="student_name" property="studentName"/>
+        <result column="hometown" property="hometown"/>
+        <result column="birthday" property="birthday"/>
+        <association property="clazz" javaType="Clazz">
+            <id column="clazz_id" property="clazzId"/>
+            <result column="clazz_name" property="clazzName"/>
+        </association>
+        <collection property="courses" ofType="Course">
+            <id column="course_id" property="courseId"/>
+            <result column="course_name" property="courseName"/>
+        </collection>
+    </resultMap>
+
+
     <insert id="insert" parameterType="Student">
         INSERT INTO t_student (clazz_id, student_name, hometown, birthday)
         VALUES (#{clazzId}, #{studentName}, #{hometown}, #{birthday})
@@ -91,5 +107,29 @@
                 AND hometown LIKE "%"#{hometown}"%"
             </when>
         </choose>
+    </select>
+
+    <select id="getStudentManyToOne" resultMap="studentMap">
+        SELECT s.student_id, s.student_name, s.hometown, s.birthday, c.clazz_id, c.clazz_name
+        FROM t_student s,
+        t_clazz c
+        WHERE s.student_id = #{studentId}
+        AND s.clazz_id = c.clazz_id
+    </select>
+
+    <select id="getStudent" resultMap="studentMap" parameterType="int">
+        SELECT s.student_id,
+        s.student_name,
+        s.hometown,
+        s.birthday,
+        c.clazz_id,
+        c.clazz_name,
+        cc.course_id,
+        cc.course_name
+        FROM t_student s
+        LEFT JOIN t_clazz c ON s.clazz_id = c.clazz_id
+        LEFT JOIN t_course_student ts ON s.student_id = ts.student_id
+        LEFT JOIN t_course cc ON ts.course_id = cc.course_id
+        WHERE s.student_id = #{studentId}
     </select>
 </mapper>
