@@ -40,5 +40,6 @@ public class UserDO implements Serializable {
     * 逻辑删除标记： 1 删除 0 未删除
     * */
     @TableField("deleted")
+    @TableLogic
     private Integer deleted;
 }

@@ -40,4 +40,6 @@ springboot-database
 ## 5. SpringBoot整合mybatis
 spring-boot-mybatis
 
+## 6.SpringBoot 整合mybatis-plus
+spring-boot-mybatis-plus
 
