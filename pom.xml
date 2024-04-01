@@ -19,6 +19,7 @@
         <module>spring-boot-template</module>
         <module>srping-boot-database</module>
         <module>spring-boot-mybatis</module>
+        <module>spring-boot-mp</module>
     </modules>
     <packaging>pom</packaging>
 

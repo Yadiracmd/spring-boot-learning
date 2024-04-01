@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 日志配置
+logging:
+  level:
+    com.baomidou.mybatisplus.samples: debug
+
+# 配置 MP
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true # 开启驼峰式
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 调试时打印sql
+
+  global-config:
+    db-config:
+      logic-delete-field: deleted # 全局配置逻辑删除字段名
+      logic-delete-value: 1 # 配置逻辑已删除值（默认1）
+      logic-not-delete-value: 0 # 配置未删除的值

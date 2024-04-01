@@ -31,7 +31,7 @@ class StudentMapperTest {
 
     @Test
     void findStudentById() {
-        Student student = studentMapper.findStudentById(8012);
+        Student student = studentMapper.findStudentById(9010);
         assertEquals("测试学生", student.getStudentName());
     }
 
