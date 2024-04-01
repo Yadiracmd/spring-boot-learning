@@ -107,5 +107,11 @@ class UserMapperTest {
         System.out.println(user);
     }
 
+    @Test
+    public void page() {
+        Page<UserDO> page = new Page<>(1, 3);
+        Page<UserDO> result = userMapper.selectPage(page, new LambdaQueryWrapper<UserDO>().eq(UserDO::getDeleted, 0));
+    }
+
 
 }

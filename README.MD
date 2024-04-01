@@ -40,6 +40,10 @@ springboot-database
 ## 5. SpringBoot整合mybatis
 spring-boot-mybatis
 
+```
+见notebook下的springBoot整合mybatis.md
+```
+
 ## 6.SpringBoot 整合mybatis-plus
 spring-boot-mybatis-plus
 
