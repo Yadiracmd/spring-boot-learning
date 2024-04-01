@@ -44,6 +44,8 @@ spring-boot-mybatis
 见notebook下的springBoot整合mybatis.md
 ```
 
-## 6.SpringBoot 整合mybatis-plus
+## 6.SpringBoot 整合  mybatis-plus
 spring-boot-mybatis-plus
 
+## 7.SpringBoot 使用 日志
+spring-boot-log

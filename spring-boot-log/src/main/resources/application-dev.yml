@@ -1,0 +1,15 @@
+logging:
+  level:
+    root: info
+    com.ztf.boot.log.controller: debug
+    #  file:
+    #    path: D:\blog\logs
+    #    name: D:\blog\logs\spring-boot-logs.log
+    #pattern:
+    # ● %d{HH:mm:ss.SSS}：日志输出时间（red）
+    # ● %thread：输出日志的进程名字，这在Web应用以及异步任务处理中很有用 （green）
+    # ● %-5level：日志级别，并且使用5个字符靠左对齐 （highlight高亮蓝色）
+    # ● %logger：日志输出类的名字 （boldMagenta粗体洋红色）
+    # ● %msg：日志消息 （cyan蓝绿色）
+    # ● %n：平台的换行符
+    # console: '%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)'
