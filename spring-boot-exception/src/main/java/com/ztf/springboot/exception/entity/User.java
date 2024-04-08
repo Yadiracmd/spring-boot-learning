@@ -1,6 +1,7 @@
 package com.ztf.springboot.exception.entity;
 
 
+import com.ztf.springboot.exception.annotation.IDCard;
 import com.ztf.springboot.exception.annotation.Phone;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -24,4 +25,6 @@ public class User {
     private String phone;
 
 
+    @IDCard
+    private String idCard;
 }

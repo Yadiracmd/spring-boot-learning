@@ -6,13 +6,13 @@ import jakarta.validation.ConstraintValidatorContext;
 
 import java.util.regex.Pattern;
 
-public class IDCardValidator implements ConstraintValidator<Phone,String> {
+public class IDCardValidator implements ConstraintValidator<IDCard,String> {
 
-    // 手机号正则表达式
-    private static final String REGEX_PHONE = "^1[3456789]\\d{9}$";
+    // 身份证正则表达式
+    private static final String REGEX_ID_CARD = "^(^\\d{15}$|^\\d{18}$|^\\d{17}(\\d|X|x))$";
 
     @Override
-    public void initialize(Phone constraintAnnotation) {
+    public void initialize(IDCard constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
@@ -21,6 +21,6 @@ public class IDCardValidator implements ConstraintValidator<Phone,String> {
         if (StringUtils.isBlank(value)){
             return true;
         }
-        return Pattern.matches(REGEX_PHONE, value);
+        return Pattern.matches(REGEX_ID_CARD, value);
     }
 }
