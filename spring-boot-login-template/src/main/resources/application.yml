@@ -1,0 +1,88 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/login-template?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  data:
+    # redis配置
+    redis:
+      # Redis数据库索引（默认为0）
+      database: 1
+      # Redis服务器地址
+      host: 127.0.0.1
+      # Redis服务器连接端口
+      port: 6379
+      # Redis服务器连接密码（默认为空）
+      # password:
+      # 连接超时时间
+      timeout: 10s
+      lettuce:
+        pool:
+          # 连接池最大连接数
+          max-active: 200
+          # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          max-wait: -1ms
+          # 连接池中的最大空闲连接
+          max-idle: 10
+          # 连接池中的最小空闲连接
+          min-idle: 0
+
+
+# 日志配置
+logging:
+  level:
+    com.baomidou.mybatisplus.samples: debug
+
+# 配置 MP
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true # 开启驼峰式
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 调试时打印sql
+
+  global-config:
+    db-config:
+      logic-delete-field: deleted # 全局配置逻辑删除字段名
+      logic-delete-value: 1 # 配置逻辑已删除值（默认1）
+      logic-not-delete-value: 0 # 配置未删除的值
+
+# Sa-Token 配置 (文档: https://sa-token.cc)
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: Authorization
+  # token前缀
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: -1
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  active-timeout: -1
+  # 关闭自动续签
+  auto-renew: false
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: true
+  # token风格
+  token-style: uuid
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: true
+  # 同一账号最大登录数量
+  max-login-count: 2
+  # 是否从cookie中读取token
+  is-read-cookie: false
+  # 是否从请求体里读取token
+  is-read-body: false
+  # 是否从header中读取token
+  is-read-header: true
+  # 是否输出操作日志
+  is-log: false
+
+
+ztf:
+  sms:
+    ccp:
+      serverIp: app.cloopen.com
+      port: 8883
+      accountSId: 2c94811c8cd4da0a018f044107406a6e
+      accountToken: 02f31c4b336e49698c8db447d582aca1
+      appId: 2c94811c8cd4da0a018f044108c96a75
+      templateId: 1 # 使用1号模板模板
+
