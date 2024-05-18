@@ -24,6 +24,8 @@
         <module>spring-boot-exception</module>
         <module>spring-boot-cache</module>
         <module>Spring-boot-filter-interceptor</module>
+        <module>spring-boot-email4</module>
+        <module>spring-boot-task</module>
     </modules>
     <packaging>pom</packaging>
 

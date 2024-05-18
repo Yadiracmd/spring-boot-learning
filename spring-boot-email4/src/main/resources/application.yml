@@ -1,0 +1,12 @@
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 3570544406@qq.com # 你的qq邮箱
+    password: nhftkqafmvvydcbf #授权码
+    protocol: smtp # 发送邮件的协议
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.part: 465
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: true
+    default-encoding: utf-8

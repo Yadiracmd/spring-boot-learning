@@ -82,32 +82,13 @@ public class ImageInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         String url = request.getAttribute("resultUrl").toString();
 
-
-        // 通过response.getWriter().write方法将这个JSON字符串写入到response的输出流中
+        // 生成二维码
         BufferedImage image = QrCodeUtil.generate(url, 300, 300);
 
+        // 设置响应类型为image/png，即PNG图片
+        response.setContentType("image/png");
 
-        // 将image转成base64
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        ImageIO.write(image, "png", outputStream);
-        String s = Base64.getEncoder().encodeToString(outputStream.toByteArray());
-
-
-        // 返回请求
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        Result<String> stringResult = new Result<>();
-        stringResult.setData(s);
-
-        // 创建一个ObjectMapper对象
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        // 使用ObjectMapper的writeValueAsString方法将stringResult对象转化为JSON字符串
-        String resultJson = objectMapper.writeValueAsString(stringResult);
-
-
-
-        response.getWriter().write(resultJson);
+        // 获取response的输出流，并直接将图片写入到输出流中
+        ImageIO.write(image, "png", response.getOutputStream());
     }
-
 }
