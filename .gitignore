@@ -33,3 +33,4 @@ build/
 .vscode/
 /Spring-boot-filter-interceptor/src/main/resources/aliyun-oss.properties
 /spring-boot-login-template/src/main/resources/aliyun-oss.properties
+/spring-boot-files/src/main/resources/aliyun-oss.properties

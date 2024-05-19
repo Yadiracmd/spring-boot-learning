@@ -26,6 +26,7 @@
         <module>Spring-boot-filter-interceptor</module>
         <module>spring-boot-email4</module>
         <module>spring-boot-task</module>
+        <module>spring-boot-websocket</module>
     </modules>
     <packaging>pom</packaging>
 
